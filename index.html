@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyan's ventures | Ultimate Photography & Cinematics Portfolio</title>
+    <style>
+        /* Cyberpunk & RGB Neon Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background-color: #05050d;
+            color: #f1f5f9;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Glowing Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #05050d; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(#bf5af2, #00d2ff); 
+            border-radius: 5px; 
+        }
+
+        /* Neon Fixed Header */
+        header {
+            background: rgba(5, 5, 13, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1.2rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #bf5af2;
+            box-shadow: 0 0 20px rgba(191, 90, 242, 0.4);
+        }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #00d2ff;
+            text-shadow: 0 0 12px rgba(0, 210, 255, 0.6);
+            letter-spacing: 2px;
+        }
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            margin-left: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            color: #bf5af2;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.8);
+        }
+
+        /* Stylish Parallax Hero Section with Your Bike Shot */
+        .hero {
+            height: 80vh;
+            margin-top: 65px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(5, 5, 13, 0.4), rgba(5, 5, 13, 0.98)), url('1000043424.JPG') no-repeat center center/cover;
+            background-attachment: fixed;
+            border-bottom: 3px solid #00d2ff;
+            box-shadow: inset 0 -100px 150px #05050d;
+        }
+        
+        @supports not (background: url('1000043424.JPG')) {
+            .hero {
+                background: linear-gradient(to bottom, rgba(5, 5, 13, 0.4), rgba(5, 5, 13, 0.98)), url('1000043424.jpg') no-repeat center center/cover;
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.8), 0 0 40px rgba(191, 90, 242, 0.6);
+            margin-bottom: 0.8rem;
+            animation: pulse 3s infinite alternate;
+        }
+        .hero p {
+            color: #ff0015;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+            background: rgba(13, 14, 30, 0.7);
+            padding: 0.6rem 2rem;
+            border-radius: 30px;
+            border: 1px solid rgba(191, 90, 242, 0.4);
+            box-shadow: 0 0 15px rgba(191, 90, 242, 0.2);
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 20px rgba(0, 210, 255, 0.8), 0 0 40px rgba(191, 90, 242, 0.6); }
+            100% { text-shadow: 0 0 30px rgba(0, 210, 255, 1), 0 0 60px rgba(191, 90, 242, 0.9); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        section {
+            background: #0d0e1e;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(191, 90, 242, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 5px; height: 100%;
+            background: linear-gradient(#00d2ff, #bf5af2);
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+            border-bottom: 2px solid rgba(0, 210, 255, 0.2);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 950px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+        .video-card {
+            background: #14162e;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(191, 90, 242, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+        }
+        .video-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: #00d2ff;
+            box-shadow: 0 0 35px rgba(0, 210, 255, 0.5);
+        }
+        .video-card video {
+            width: 100%;
+            display: block;
+            border-bottom: 3px solid #bf5af2;
+        }
+        .video-card p {
+            padding: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #fff;
+            background: #0d0e1e;
+        }
+
+        /* Gallery Configuration */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .image-card {
+            background: #14162e;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 210, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        }
+        .image-card:hover {
+            transform: scale(1.04);
+            border-color: #bf5af2;
+            box-shadow: 0 0 30px rgba(191, 90, 242, 0.5);
+        }
+        .image-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid #00d2ff;
+        }
+        .image-card p {
+            padding: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            color: #e2e8f0;
+            background: #0d0e1e;
+        }
+
+        .auth-box { max-width: 480px; margin: 0 auto; }
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background: #14162e;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #bf5af2;
+            box-shadow: 0 0 15px rgba(191, 90, 242, 0.5);
+            background: #1a1d3a;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #bf5af2 0%, #0066ff 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 800;
+            width: 100%;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(191, 90, 242, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.8);
+        }
+        
+        .toggle-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+        .toggle-link span {
+            color: #00d2ff;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: #cbd5e1;
+        }
+        .contact-info strong {
+            color: #00d2ff;
+            font-size: 1.2rem;
+        }
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #bf5af2;
+            text-shadow: 0 0 8px rgba(191, 90, 242, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: #05050d;
+            color: #64748b;
+            margin-top: 6rem;
+            border-top: 2px solid rgba(191, 90, 242, 0.2);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SR GAMING</div>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#videos">My Setup</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#auth">Login</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Shreyan Ranu</h1>
+        <p>Welcome to My Gaming & Personal Space</p>
+    </div>
+
+    <div class="container">
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my ultimate personal space! I am deeply passionate about technology, professional gaming setups, and exploring high-performance hardware. This website is a dynamic showcase of my setup builds, thoughts, and creative journey. I'm focused on leveling up my skills and pushing boundaries in the tech realm.</p>
+        </section>
+
+        <section id="videos">
+            <h2>My Setup & Cinematic Videos</h2>
+            <div class="video-grid">
+                
+                <div class="video-card">
+                    <video controls autoplay muted loop preload="auto">
+                        <source src="1000062010.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>🎬 ASUS V16 Gaming Edition (RTX 4050 GPU)</p>
+                </div>
+
+                <div class="video-card">
+                    <video controls autoplay muted loop preload="auto">
+                        <source src="1000061209.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>🔥 Dream PC Setup & Aesthetic Vibe</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>My Photography Gallery</h2>
+            <div class="image-grid">
+                
+                <div class="image-card">
+                    <img src="1000628449 jpg" onerror="this.src='1000628449.JPG '" alt="Prinsep Ghat Columns">
+                    <p>🏛️ Prinsep Ghat Pillars</p>
+                </div>
+
+                <div class="image-card">
+                    <img src="1000062848.jpg" onerror="this.src='1000062848.JPG'" alt="Prinsep Ghat and Vidyasagar Setu">
+                    <p>🌉 Vidyasagar Setu Vibe</p>
+                </div>
+
+                <div class="image-card">
+                    <img src="1000061093.jpg" onerror="this.src='1000061093.JPG'" alt="ITC Royal Bengal">
+                    <p>🏢 ITC Royal Bengal, Kolkata</p>
+                </div>
+
+                <div class="image-card">
+                    <img src="1000055372.jpg" onerror="this.src='1000053724.JPG'" alt="Royal Enfield Meteor 350 Rear">
+                    <p>🏍️ Meteor 350 Cruise</p>
+                </div>
+
+                <div class="image-card">
+                    <img src="1000053725.jpg" onerror="this.src='1000053725.JPG'" alt="Royal Enfield Meteor 350 Front">
+                    <p>⚡ Headlight Glow | Meteor</p>
+                </div>
+
+                <div class="image-card">
+                    <img src="1000055191.jpg" onerror="this.src='1000055191.JPG'" alt="Rural Road Landscape">
+                    <p>🌿 Countryside Trail</p>
+                </div>
+
+                <div class="image-card">
+                    <img src="1000034982.jpg" onerror="this.src='1000034982.JPG'" alt="Kolkata Skyline Monsoon Clouds">
+                    <p>☁️ Monsoon Over Cityscape</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="auth">
+            <h2 id="auth-title">Secure Login</h2>
+            <div class="auth-box">
+                <form id="authForm" onsubmit="handleAuth(event)">
+                    <div id="name-field" style="display: none;">
+                        <input type="text" id="auth-name" placeholder="Enter Full Name">
+                    </div>
+                    
+                    <input type="email" id="auth-email" placeholder="Email Address" required>
+                    <input type="password" id="auth-password" placeholder="Password" required>
+                    
+                    <button type="submit" class="btn" id="auth-btn">Login</button>
+                </form>
+                <div class="toggle-link">
+                    <p id="toggle-text">Don't have an account? <span onclick="toggleAuthMode()">Sign up here</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p>Want to collaborate, talk about setups, or just connect? Drop a message right away:</p>
+                    <br>
+                    <p><strong>📞 Phone:</strong> <a href="tel:+918509917787">+91 85099 17787</a></p>
+                    <p><strong>✉️ Email:</strong> shreyan@example.com</p>
+                    <p><strong>📍 Location:</strong> West Bengal, India</p>
+                </div>
+
+                <div>
+                    <form onsubmit="handleContact(event)">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message..." rows="4" required style="resize: none;"></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Shreyan Ranu. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let isLoginMode = true;
+
+        function toggleAuthMode() {
+            isLoginMode = !isLoginMode;
+            const title = document.getElementById('auth-title');
+            const btn = document.getElementById('auth-btn');
+            const toggleText = document.getElementById('toggle-text');
+            const nameField = document.getElementById('name-field');
+
+            if (isLoginMode) {
+                title.innerText = "Secure Login";
+                btn.innerText = "Login";
+                toggleText.innerHTML = 'Don\'t have an account? <span onclick="toggleAuthMode()">Sign up here</span>';
+                nameField.style.display = "none";
+            } else {
+                title.innerText = "Create Account";
+                btn.innerText = "Sign Up";
+                toggleText.innerHTML = 'Already have an account? <span onclick="toggleAuthMode()">Login here</span>';
+                nameField.style.display = "block";
+            }
+        }
+
+        function handleAuth(event) {
+            event.preventDefault();
+            const email = document.getElementById('auth-email').value;
+            if (isLoginMode) {
+                alert("Login successful! Welcome back: " + email);
+            } else {
+                alert("Gaming account created successfully!");
+                toggleAuthMode();
+            }
+        }
+
+        function handleContact(event) {
+            event.preventDefault();
+            alert("Awesome! Your message has been transmitted successfully.");
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>
